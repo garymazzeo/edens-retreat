@@ -88,6 +88,23 @@ header {
   }
 }
 
+search {
+
+  .search__input-group {
+    --flow-space: 0;
+  }
+
+  label {
+    font-family: var(--font-serif);
+    font-size: var(--font-0);
+  }
+
+  input {
+    padding: calc(var(--space-2xs) - 4px) calc(var(--space-xs) - 4px);
+    border: 2px solid var(--color-primary-100);
+  }
+}
+
 .card {
   // background-image: url('https://blobcdn.com/blob.svg?extraPoints=3&fill=5fdce0');
   // background-size: auto auto;
@@ -98,31 +115,48 @@ header {
   box-shadow: var(--space-xs) var(--space-xs) 0 var(--color-primary-200);
 
   &:hover {
-    .card__image {
-      
+    .card__caption {
+      opacity: 1;
     }
   }
 
   &__image {
-    height: 25rem;
+    height: var(--size-image-height, 25rem);
     width: 100%;
     background-color: var(--color-primary-100);
     background-size: cover;    
     background-position: center;
-    display: grid;
-    place-items: center;
+    position: relative;
   }
 
   &__caption {
-    background-color: var(--color-black);
-    opacity: 0.8;
+    padding-right: var(--space-2xl);
+    padding-bottom: var(--space-md);
+    padding-left: var(--space-2xl);
+    padding-top: var(--space-md);
+    opacity: 0;
+    color: var(--color-white);
+    z-index: 2;
+    transition: opacity ease 0.2s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      top: 0;
+      background-color: var(--color-black);
+      opacity: 0.75;
+      z-index: -1;
+    }
   }
 
   &__content {
     padding: var(--space-md) var(--space-md);
   }
 
-  &__header {
+  &__title {
     position: relative;
     width: fit-content;
     transform: translateX(-0.25ex);
@@ -144,7 +178,19 @@ header {
   }
 
   &__description {
+  
   }
+
+  &__description-details { 
+    dl {
+      --flow-space: 0.5rem;
+    }
+  }
+}
+
+
+dt {
+  font-weight: 700;
 }
 
 .btn {
@@ -155,10 +201,12 @@ header {
   font-family: var(--font-serif);
   font-size: var(--font--1);
   letter-spacing: 1px;
-  transition: background-color cubic-bezier(0.23, 1, 0.320, 1) 0.2s;
+  transition: transform cubic-bezier(0.23, 1, 0.320, 1) 0.2s, box-shadow cubic-bezier(0.23, 1, 0.320, 1) 0.2s;
 
   &:hover {
-    background-color: var(--color-primary-200);
+    // background-color: var(--color-primary-200);
+    box-shadow: var(--space-3xs) var(--space-3xs) 0 var(--color-primary-200);
+    transform: translateY(calc(var(--space-3xs) * -1));
     cursor: pointer;
   }
 }
