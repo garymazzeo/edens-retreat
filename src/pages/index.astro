@@ -411,7 +411,12 @@ import '../scss/styles.scss';
         })
 
       } else if (inputValue.length == 0) {
+
         resultsText = ''
+        allPlants.forEach((plant) => {
+          plant.classList.replace('hide', 'show')
+        })
+        
       } else {
         resultsText = `Showing ${matches.length} results`
       }
