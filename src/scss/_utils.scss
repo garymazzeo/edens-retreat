@@ -90,7 +90,7 @@
   }
 }
 
-.hide {
+.visually-hidden {
   position: absolute !important;
   height: 1px;
   width: 1px;
@@ -100,10 +100,18 @@
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-.show {
+.visually-shown {
   position: initial;
   height: auto;
   width: auto;
   overflow: hidden;
   clip: initial;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
