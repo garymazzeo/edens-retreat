@@ -45,13 +45,13 @@ header {
     padding-bottom: var(--space-2xs);
     padding-left: var(--space-xs);
     color: var(--color-white);
-    // border-radius: 2px;
     letter-spacing: 1px;
-    transition: background-color cubic-bezier(0.23, 1, 0.320, 1) 0.2s;
+    transition: background-color cubic-bezier(0.23, 1, 0.320, 1) 0.3s, color cubic-bezier(0.23, 1, 0.320, 1) 0.3s;
 
     &:hover {
-      background-color: var(--color-white);
-      color: var(--color-secondary-200);
+      background-color: var(--color-secondary-100);
+      color: var(--color-primary-200);
+      transition: background-color cubic-bezier(0.23, 1, 0.320, 1) 1s, color cubic-bezier(0.23, 1, 0.320, 1) 0.3s;
     }
 
     a {
@@ -90,6 +90,10 @@ header {
 
 search {
 
+  form {
+    --flow-space: 0.5rem;
+  }
+
   .search__input-group {
     --flow-space: 0;
   }
@@ -106,9 +110,6 @@ search {
 }
 
 .card {
-  // background-image: url('https://blobcdn.com/blob.svg?extraPoints=3&fill=5fdce0');
-  // background-size: auto auto;
-  // background-repeat: no-repeat;
   height: max-content;
   background-color: var(--color-white);
   border: 2px solid var(--color-primary-200);
@@ -170,7 +171,7 @@ search {
       position: absolute;
       width: 110%;
       height: 0.5em;
-      background-color: var(--color-secondary-50);
+      background-color: var(--color-secondary-200);
       border: 2px solid var(--color-white);
       transform: translateY(0.9em) translateX(-0.25em);
       z-index: -1;
@@ -181,7 +182,7 @@ search {
   
   }
 
-  &__description-details { 
+  &__description-details {
     dl {
       --flow-space: 0.5rem;
     }
@@ -204,7 +205,6 @@ dt {
   transition: transform cubic-bezier(0.23, 1, 0.320, 1) 0.2s, box-shadow cubic-bezier(0.23, 1, 0.320, 1) 0.2s;
 
   &:hover {
-    // background-color: var(--color-primary-200);
     box-shadow: var(--space-3xs) var(--space-3xs) 0 var(--color-primary-200);
     transform: translateY(calc(var(--space-3xs) * -1));
     cursor: pointer;
@@ -213,8 +213,7 @@ dt {
 
 footer {
   --flow-space: auto;
-  display: flex;
-  justify-content: space-between;
+  justify-content: end;
   padding-left: var(--space-lg);
   padding-right: var(--space-lg);
   padding-bottom: var(--space-lg);
